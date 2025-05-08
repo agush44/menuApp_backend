@@ -8,6 +8,10 @@ const productSchema = new mongoose.Schema(
     category: { type: String, required: true },
     image: { type: String },
     available: { type: Boolean, default: true },
+    promotion: {
+      isActive: { type: Boolean, default: false },
+      discountPercentage: { type: Number, min: 0, max: 100 },
+    },
   },
   { versionKey: false, timestamps: true }
 );

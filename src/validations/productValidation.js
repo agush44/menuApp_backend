@@ -7,4 +7,8 @@ export const productSchema = Joi.object({
   category: Joi.string().required(),
   image: Joi.string().uri().optional(),
   available: Joi.boolean().optional(),
-});
+  promotion: Joi.object({
+    isActive: Joi.boolean().required(),
+    discountPercentage: Joi.number().min(0).max(100).required(),
+  }).optional(),
+}).options({ allowUnknown: false });
